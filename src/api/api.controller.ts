@@ -16,9 +16,9 @@ export class ApiController {
     console.log("request body", request.body);
     return new Promise((resolve, reject) => {
       this.messageQueueService.addToQueue({
-        type: 0,
-        phoneNumber: "number",
-        message: "message"
+        type: request.body.type,
+        phoneNumber: request.body.phoneNumber,
+        message: request.body.message
       });
       resolve("test queued");
     });
